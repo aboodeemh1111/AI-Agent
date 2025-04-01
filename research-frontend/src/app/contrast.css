@@ -1,0 +1,66 @@
+/* Import this file in globals.css */
+
+/* Contrast checker utility */
+:root {
+  --min-contrast-ratio: 4.5;
+}
+
+/* Ensure text is readable on any background */
+[data-contrast="auto"] {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+/* Force light text on dark backgrounds */
+[data-contrast="light-on-dark"] {
+  color: white !important;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Force dark text on light backgrounds */
+[data-contrast="dark-on-light"] {
+  color: var(--midnight-blue) !important;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Ensure all text has sufficient contrast */
+.text-on-light {
+  color: var(--midnight-blue) !important;
+}
+
+.text-on-dark {
+  color: white !important;
+}
+
+/* Ensure all backgrounds provide good contrast */
+.bg-light {
+  background-color: white !important;
+}
+
+.bg-dark {
+  background-color: var(--dark-charcoal) !important;
+}
+
+/* Ensure all buttons have proper contrast */
+.button-on-light {
+  background-color: var(--cyber-purple);
+  color: white;
+}
+
+.button-on-dark {
+  background-color: var(--neon-cyan);
+  color: var(--midnight-blue);
+}
+
+/* Ensure all form elements have proper contrast */
+.input-on-light {
+  background-color: white;
+  color: var(--midnight-blue);
+  border-color: var(--soft-steel);
+}
+
+.input-on-dark {
+  background-color: var(--dark-charcoal);
+  color: var(--soft-white);
+  border-color: var(--soft-steel);
+}

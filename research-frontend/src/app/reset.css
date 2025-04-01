@@ -1,0 +1,45 @@
+/* Create this file and import it in globals.css */
+
+/* Reset text colors for better contrast */
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+/* Force text colors */
+.force-text-contrast {
+  color: var(--foreground) !important;
+}
+
+.dark .force-text-contrast {
+  color: var(--soft-white) !important;
+}
+
+/* Force background colors */
+.force-bg-contrast {
+  background-color: var(--background) !important;
+}
+
+.dark .force-bg-contrast {
+  background-color: var(--midnight-blue) !important;
+}
+
+/* Force user message colors */
+.user-message {
+  color: white !important;
+  background-color: var(--cyber-purple) !important;
+}
+
+/* Force assistant message colors */
+.assistant-message {
+  color: var(--midnight-blue) !important;
+  background-color: white !important;
+}
+
+.dark .assistant-message {
+  color: var(--soft-white) !important;
+  background-color: var(--dark-charcoal) !important;
+}
