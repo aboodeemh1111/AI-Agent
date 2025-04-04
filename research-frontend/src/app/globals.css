@@ -1,449 +1,75 @@
-@import "./reset.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Tech-inspired color palette - Darker shades */
-  --midnight-blue: #0a192f;
-  --neon-cyan: #00d4ff;
-  --cyber-purple: #7d5ba6;
-  --soft-steel: #a6b1c0;
-  --dark-charcoal: #121212; /* Darker background */
-  --soft-white: #f5f7fa;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
 
-  /* Theme variables - improved contrast */
-  --background: var(--soft-white);
-  --foreground: var(--midnight-blue);
-  --card-bg: #ffffff;
-  --card-border: var(--soft-steel);
-  --input-bg: #ffffff;
-  --input-border: var(--soft-steel);
-  --primary: var(--cyber-purple);
-  --primary-hover: #6d4a96;
-  --primary-light: #eae5f4;
-  --primary-dark: #5d4286;
-  --user-message-bg: var(--cyber-purple);
-  --user-message-text: #ffffff;
-  --assistant-message-bg: #f0f2f5;
-  --assistant-message-border: var(--soft-steel);
-  --assistant-message-text: var(--midnight-blue);
-  --loading-dot-bg: var(--soft-steel);
-  --header-bg: rgba(255, 255, 255, 0.95);
-  --shadow-color: rgba(10, 25, 47, 0.05);
-  --shadow-color-darker: rgba(10, 25, 47, 0.1);
-  --accent-color: var(--neon-cyan);
-  --text-muted: #4b5563; /* Darker muted text for better contrast */
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 262 80% 50%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 262 80% 50%;
+
+  --radius: 0.5rem;
 }
 
 .dark {
-  /* Dark mode overrides */
-  --background: var(--dark-charcoal);
-  --foreground: var(--soft-white);
-  --card-bg: #1a1a1a; /* Even darker cards */
-  --card-border: #2d2d2d;
-  --input-bg: #1a1a1a;
-  --input-border: #2d2d2d;
-  --primary: var(--neon-cyan);
-  --primary-hover: #00bfe6;
-  --primary-light: #1a2a3f;
-  --primary-dark: #00e6ff;
-  --user-message-bg: var(--cyber-purple);
-  --user-message-text: var(--soft-white);
-  --assistant-message-bg: #1a1a1a;
-  --assistant-message-border: #2d2d2d;
-  --assistant-message-text: var(--soft-white);
-  --loading-dot-bg: #4a5568;
-  --header-bg: rgba(18, 18, 18, 0.95);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-darker: rgba(0, 0, 0, 0.4);
-  --accent-color: var(--neon-cyan);
-  --text-muted: #a0aec0; /* Lighter muted text for dark mode */
-}
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 263 70% 50%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 263 70% 50%;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
-/* Tailwind utility classes */
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.from-blue-50 {
-  --tw-gradient-from: #eff6ff;
-  --tw-gradient-stops: var(--tw-gradient-from),
-    var(--tw-gradient-to, rgba(239, 246, 255, 0));
-}
-
-.to-white {
-  --tw-gradient-to: #ffffff;
-}
-
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.from-blue-600 {
-  --tw-gradient-from: #2563eb;
-  --tw-gradient-stops: var(--tw-gradient-from),
-    var(--tw-gradient-to, rgba(37, 99, 235, 0));
-}
-
-.to-indigo-600 {
-  --tw-gradient-to: #4f46e5;
-}
-
-.from-blue-700 {
-  --tw-gradient-from: #1d4ed8;
-  --tw-gradient-stops: var(--tw-gradient-from),
-    var(--tw-gradient-to, rgba(29, 78, 216, 0));
-}
-
-.to-indigo-700 {
-  --tw-gradient-to: #4338ca;
-}
-
-.from-blue-100 {
-  --tw-gradient-from: #dbeafe;
-  --tw-gradient-stops: var(--tw-gradient-from),
-    var(--tw-gradient-to, rgba(219, 234, 254, 0));
-}
-
-.to-indigo-100 {
-  --tw-gradient-to: #e0e7ff;
-}
-
-.bg-clip-text {
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.text-transparent {
-  color: transparent;
-}
-
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-.bg-white\/80 {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.bg-blue-50 {
-  background-color: #eff6ff;
-}
-
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.border-gray-100 {
-  border-color: #f3f4f6;
-}
-
-.border-gray-200 {
-  border-color: #e5e7eb;
-}
-
-.border-red-100 {
-  border-color: #fee2e2;
-}
-
-.text-gray-500 {
-  color: #6b7280;
-}
-
-.text-gray-700 {
-  color: #374151;
-}
-
-.text-gray-800 {
-  color: #1f2937;
-}
-
-.leading-relaxed {
-  line-height: 1.625;
-}
-
-/* Add these Tailwind utility classes if they're not being generated */
-.bg-gray-50 {
-  background-color: #f9fafb;
-}
-
-.bg-white {
-  background-color: #ffffff;
-}
-
-.text-blue-600 {
-  color: #2563eb;
-}
-
-.bg-blue-600 {
-  background-color: #2563eb;
-}
-
-.bg-blue-700 {
-  background-color: #1d4ed8;
-}
-
-.bg-red-50 {
-  background-color: #fef2f2;
-}
-
-.text-red-700 {
-  color: #b91c1c;
-}
-
-.bg-blue-100 {
-  background-color: #dbeafe;
-}
-
-.text-blue-800 {
-  color: #1e40af;
-}
-
-/* Add these additional utility classes */
-.animate-pulse {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.delay-75 {
-  animation-delay: 0.75s;
-}
-
-.delay-150 {
-  animation-delay: 0.15s;
-}
-
-.rotate-180 {
-  transform: rotate(180deg);
-}
-
-.transition-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Dark mode toggle animation */
-.toggle-circle {
-  transition: transform 0.3s ease;
-}
-
-.toggle-active .toggle-circle {
-  transform: translateX(1.5rem);
-}
-
-/* Elegant scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  border-radius: 20px;
-}
-
-/* Message animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.message-animation {
-  animation: fadeIn 0.2s ease-out forwards;
-}
-
-/* Theme transition */
-.theme-transition {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Glass effect */
-.glass-effect {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* Claude-inspired container widths */
-.claude-container {
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-}
-
-@media (min-width: 1024px) {
-  .claude-container {
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .claude-container {
-    max-width: 900px;
-  }
-}
-
-/* Claude-inspired message bubbles */
-.claude-message {
-  border-radius: 1.25rem;
-  padding: 1rem 1.25rem;
-  max-width: 90%;
-  line-height: 1.6;
-  color: var(--foreground);
-}
-
-@media (min-width: 640px) {
-  .claude-message {
-    max-width: 85%;
-    padding: 1.25rem 1.5rem;
-  }
-}
-
-/* Claude-inspired input */
-.claude-input {
-  border-radius: 1.5rem;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 2px 8px var(--shadow-color);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.claude-input:focus {
-  box-shadow: 0 4px 12px var(--shadow-color-darker);
-}
-
-/* Copy button animation */
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-.copy-notification {
-  animation: fadeInOut 2s ease-in-out forwards;
-}
-
-/* Improve hover states for interactive elements */
-.hover-effect {
-  transition: all 0.2s ease;
-}
-
-.hover-effect:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--shadow-color);
-}
-
-/* Tooltip styles */
-.tooltip {
-  position: relative;
-}
-
-.tooltip:before {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.5rem 0.75rem;
-  background-color: var(--foreground);
-  color: var(--background);
-  border-radius: 0.375rem;
-  font-size: 0.75rem;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  z-index: 10;
-}
-
-.tooltip:hover:before {
-  opacity: 0.9;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-0.25rem);
-}
-
-/* Add these animations to your globals.css file */
-
+/* Custom animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -459,321 +85,44 @@ body {
   animation: fade-in 0.3s ease-out forwards;
 }
 
-/* Glow effect for neon elements */
-.neon-glow {
-  filter: drop-shadow(0 0 5px var(--neon-cyan));
-}
-
-/* Pulse animation for the loading state */
-@keyframes pulse-glow {
+/* Loading dots animation */
+@keyframes loading-dots {
   0%,
+  80%,
   100% {
-    filter: drop-shadow(0 0 2px var(--neon-cyan));
+    opacity: 0;
   }
-  50% {
-    filter: drop-shadow(0 0 8px var(--neon-cyan));
+  40% {
+    opacity: 1;
   }
 }
 
-.pulse-glow {
-  animation: pulse-glow 2s infinite;
+.loading-dot {
+  animation: loading-dots 1.4s infinite ease-in-out both;
 }
 
-/* Gradient text for headings */
-.gradient-text {
-  background: linear-gradient(90deg, var(--cyber-purple), var(--neon-cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline;
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
 }
 
-/* Improved scrollbar for the tech theme */
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 10px;
+}
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--soft-steel);
-  border-radius: 20px;
-}
-
-.dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--cyber-purple);
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: var(--cyber-purple);
-}
-
-.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: var(--neon-cyan);
-}
-
-/* Tech-inspired card with hover effect */
-.tech-card {
-  transition: all 0.3s ease;
-  border: 1px solid var(--soft-steel);
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.tech-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 212, 255, 0.1);
-  border-color: var(--neon-cyan);
-}
-
-.dark .tech-card:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 212, 255, 0.2);
-}
-
-/* Add these additional styles for better text contrast */
-.text-muted {
-  color: var(--text-muted);
-}
-
-/* Ensure user messages have good contrast */
-.user-message {
-  color: white !important;
-}
-
-/* Improve message contrast */
-.claude-message {
-  color: var(--foreground) !important;
-}
-
-.user-message {
-  color: white !important;
-}
-
-.assistant-message {
-  background-color: white !important;
-  color: var(--midnight-blue) !important;
-}
-
-.dark .assistant-message {
-  background-color: var(--dark-charcoal) !important;
-  color: var(--soft-white) !important;
-}
-
-/* Improve text contrast for various elements */
-.text-soft-steel {
-  color: #4b5563 !important; /* Darker gray for better contrast */
-}
-
-.dark .text-soft-steel {
-  color: #e5e7eb !important; /* Lighter gray for dark mode */
-}
-
-/* Ensure all text in dark mode has good contrast */
-.dark p,
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark span:not(.text-cyber-purple):not(.text-neon-cyan) {
-  color: var(--soft-white) !important;
-}
-
-/* Ensure all text in light mode has good contrast */
-p,
-h1,
-h2,
-h3,
-h4,
-span:not(.text-cyber-purple):not(.text-neon-cyan) {
-  color: var(--midnight-blue) !important;
-}
-
-/* Override for specific elements that need different colors */
-.text-cyber-purple {
-  color: var(--cyber-purple) !important;
-}
-
-.text-neon-cyan,
-.dark .text-neon-cyan {
-  color: var(--neon-cyan) !important;
-}
-
-/* Improve contrast for muted text */
-.text-muted,
-.text-soft-steel\/70 {
-  color: #6b7280 !important; /* Medium gray for better contrast */
-}
-
-.dark .text-muted,
-.dark .text-soft-steel\/70 {
-  color: #d1d5db !important; /* Light gray for dark mode */
-}
-
-/* Ensure all text has sufficient contrast */
-.text-contrast-safe {
-  color: var(--midnight-blue) !important;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-.dark .text-contrast-safe {
-  color: var(--soft-white) !important;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-}
-
-/* Ensure all backgrounds provide good contrast */
-.bg-contrast-safe {
-  background-color: white !important;
-}
-
-.dark .bg-contrast-safe {
-  background-color: var(--dark-charcoal) !important;
-}
-
-/* Override any problematic Tailwind classes */
-.text-soft-steel,
-.text-soft-steel\/70,
-.text-soft-steel\/50 {
-  color: #4b5563 !important; /* Darker gray for better contrast in light mode */
-}
-
-.dark .text-soft-steel,
-.dark .text-soft-steel\/70,
-.dark .text-soft-steel\/50 {
-  color: #d1d5db !important; /* Lighter gray for better contrast in dark mode */
-}
-
-/* Ensure all buttons have readable text */
-button {
-  color: var(--midnight-blue);
-}
-
-.dark button {
-  color: var(--soft-white);
-}
-
-/* Special case for user messages */
-.user-message,
-.user-message * {
-  color: white !important;
-}
-
-/* Special case for assistant messages */
-.assistant-message {
-  color: var(--midnight-blue) !important;
-}
-
-.dark .assistant-message {
-  color: var(--soft-white) !important;
-}
-
-/* Ensure all links are visible */
-a {
-  color: var(--cyber-purple);
-}
-
-.dark a {
-  color: var(--neon-cyan);
-}
-
-/* Ensure all form elements have readable text */
-input,
-textarea,
-select {
-  color: var(--midnight-blue) !important;
-}
-
-.dark input,
-.dark textarea,
-.dark select {
-  color: var(--soft-white) !important;
-}
-
-/* Add these rules to ensure proper text-background contrast */
-
-/* Force light text on dark backgrounds */
-.dark .bg-dark-charcoal,
-.dark .bg-midnight-blue,
-.dark .bg-cyber-purple,
-.bg-cyber-purple,
-.bg-midnight-blue,
-.dark-bg {
-  color: white !important;
-}
-
-/* Force dark text on light backgrounds */
-.bg-white,
-.bg-soft-white,
-.bg-soft-steel,
-.light-bg {
-  color: var(--midnight-blue) !important;
-}
-
-/* Ensure dark mode text is always light */
-.dark * {
-  color-scheme: dark;
-}
-
-/* Ensure light mode text is always dark */
-:not(.dark) * {
-  color-scheme: light;
-}
-
-/* Override for specific components */
-.dark .assistant-message * {
-  color: var(--soft-white) !important;
-}
-
-.assistant-message * {
-  color: var(--midnight-blue) !important;
-}
-
-.user-message * {
-  color: white !important;
-}
-
-/* Ensure all buttons have proper contrast */
-button.bg-cyber-purple,
-button.dark\:bg-cyber-purple,
-button.bg-neon-cyan,
-button.dark\:bg-neon-cyan {
-  color: white !important;
-}
-
-/* Ensure all form elements have proper contrast */
-input,
-textarea,
-select {
-  background-color: white !important;
-  color: var(--midnight-blue) !important;
-}
-
-.dark input,
-.dark textarea,
-.dark select {
-  background-color: var(--dark-charcoal) !important;
-  color: var(--soft-white) !important;
-}
-
-/* High contrast mode for accessibility */
-.high-contrast-mode {
-  --midnight-blue: #000000;
-  --soft-white: #ffffff;
-  --contrast-ratio: 21;
-}
-
-/* Override dark mode text colors */
-.dark * {
-  color: var(--soft-white);
-}
-
-/* Ensure dark backgrounds */
-.dark .bg-white {
-  background-color: var(--dark-charcoal) !important;
-}
-
-.dark .bg-soft-white {
-  background-color: var(--dark-charcoal) !important;
-}
-
-/* Ensure text contrast in dark mode */
-.dark .text-midnight-blue {
-  color: var(--soft-white) !important;
-}
-
-.dark .text-soft-steel {
-  color: #cbd5e0 !important;
+  background: hsl(var(--primary) / 0.7);
 }
