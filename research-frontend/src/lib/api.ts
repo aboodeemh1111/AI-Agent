@@ -1,6 +1,6 @@
 import { ResearchData } from "@/types";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://localhost:5001/api"; // Must be 5001 to match backend
 
 export async function fetchResearch(query: string): Promise<ResearchData> {
   const response = await fetch(`${API_URL}/research`, {

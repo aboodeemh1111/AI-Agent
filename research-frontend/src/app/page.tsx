@@ -11,15 +11,7 @@ import ChatInput from "@/components/chat/ChatInput";
 import Toast from "@/components/ui/Toast";
 
 export default function Home() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "welcome",
-      role: "assistant",
-      content:
-        "Hello! I'm your AI Research Assistant. What would you like to research today?",
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<ToastState>({
     visible: false,
@@ -28,6 +20,19 @@ export default function Home() {
   });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Initialize messages after hydration to avoid timestamp mismatch
+  useEffect(() => {
+    setMessages([
+      {
+        id: "welcome",
+        role: "assistant",
+        content:
+          "Hello! I'm your AI Research Assistant. What would you like to research today?",
+        timestamp: new Date(),
+      },
+    ]);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
