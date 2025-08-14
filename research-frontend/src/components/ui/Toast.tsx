@@ -38,7 +38,7 @@ export default function Toast({
     <div className="fixed bottom-4 right-4 z-50 animate-fade-in">
       <div
         className={cn(
-          "flex items-center justify-between rounded-lg border-l-4 p-4 shadow-md",
+          "flex items-center justify-between rounded-xl border-l-4 p-4 shadow-md backdrop-blur bg-background/70",
           typeClasses[type]
         )}
       >

@@ -9,6 +9,10 @@ import Footer from "@/components/layout/Footer";
 import ChatMessage from "@/components/chat/ChatMessage";
 import ChatInput from "@/components/chat/ChatInput";
 import Toast from "@/components/ui/Toast";
+import BackgroundEffects from "@/components/ui/BackgroundEffects";
+import NeonTitle from "@/components/ui/NeonTitle";
+import GradientCard from "@/components/ui/GradientCard";
+import AnimatedOrbs from "@/components/ui/AnimatedOrbs";
 
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -128,9 +132,26 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <BackgroundEffects />
       <Header onClear={clearConversation} />
 
-      <main className="flex-1 container py-4 flex flex-col">
+      <main className="flex-1 container py-6 flex flex-col relative">
+        <AnimatedOrbs />
+        {/* Hero */}
+        <GradientCard className="mb-6 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <NeonTitle
+              title="Tech-forward, artistic research interface"
+              subtitle="Search, synthesize, and cite — with style."
+            />
+            <div className="text-xs text-muted-foreground">
+              <span className="inline-flex items-center rounded-md border px-2 py-1 bg-secondary/60">
+                Tip: Press Enter to send, Shift+Enter for a newline
+              </span>
+            </div>
+          </div>
+        </GradientCard>
+
         <div className="flex-1 overflow-y-auto custom-scrollbar mb-4 space-y-6 pb-4">
           {messages.map((message) => (
             <ChatMessage
@@ -145,7 +166,7 @@ export default function Home() {
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="sticky bottom-0 bg-background pt-2">
+        <div className="sticky bottom-0 bg-background/80 backdrop-blur pt-2">
           <ChatInput onSendMessage={handleSendMessage} disabled={loading} />
         </div>
       </main>

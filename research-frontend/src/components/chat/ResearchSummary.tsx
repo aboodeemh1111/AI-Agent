@@ -28,7 +28,7 @@ export default function ResearchSummary({
         {research.topic}
       </h3>
 
-      <p className="whitespace-pre-wrap">{research.summary}</p>
+      <p className="whitespace-pre-wrap leading-relaxed">{research.summary}</p>
 
       <SourcesList sources={research.sources} />
 
@@ -54,7 +54,7 @@ export default function ResearchSummary({
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1.5"
+          className="flex items-center gap-1.5 shadow-sm"
           onClick={handleShare}
         >
           <Share2 className="h-3.5 w-3.5" />

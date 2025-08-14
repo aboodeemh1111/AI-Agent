@@ -69,6 +69,37 @@ body {
   color: hsl(var(--foreground));
 }
 
+/* Techy neon text */
+.neon-text {
+  text-shadow: 0 0 12px hsl(var(--primary) / 0.35),
+    0 0 32px hsl(var(--primary) / 0.2);
+}
+
+/* Background grid */
+.background-grid {
+  background-image: linear-gradient(
+      to right,
+      hsl(var(--foreground) / 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      hsl(var(--foreground) / 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+}
+
+/* Aurora gradients */
+.aurora {
+  background: radial-gradient(closest-side, hsl(262 80% 60% / 0.6), transparent),
+    radial-gradient(closest-side, hsl(210 100% 60% / 0.5), transparent);
+}
+.aurora-2 {
+  background: radial-gradient(closest-side, hsl(330 80% 60% / 0.5), transparent),
+    radial-gradient(closest-side, hsl(180 100% 60% / 0.5), transparent);
+}
+
 /* Custom animations */
 @keyframes fade-in {
   from {

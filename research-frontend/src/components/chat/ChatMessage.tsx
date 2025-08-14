@@ -53,7 +53,7 @@ export default function ChatMessage({
       }`}
     >
       {!isUser && (
-        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 shadow-sm">
           <Bot className="h-4 w-4 text-primary" />
         </div>
       )}
@@ -99,7 +99,7 @@ export default function ChatMessage({
       </div>
 
       {isUser && (
-        <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 order-2">
+        <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 order-2 shadow-sm">
           <User className="h-4 w-4 text-primary-foreground" />
         </div>
       )}

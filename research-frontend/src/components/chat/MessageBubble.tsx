@@ -13,8 +13,10 @@ export default function MessageBubble({
   return (
     <div
       className={cn(
-        "relative rounded-lg p-4 shadow-sm",
-        isUser ? "bg-primary text-primary-foreground" : "bg-card border"
+        "relative rounded-xl p-4 shadow-sm",
+        isUser
+          ? "bg-gradient-to-tr from-primary to-primary/90 text-primary-foreground"
+          : "bg-card/80 border backdrop-blur"
       )}
     >
       {children}
