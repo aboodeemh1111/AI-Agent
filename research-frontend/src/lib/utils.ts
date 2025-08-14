@@ -22,7 +22,7 @@ export function extractUrl(text: string): string | null {
         return url.toString();
       }
     }
-  } catch (e) {
+  } catch {
     // Ignore invalid URLs
   }
   return null;
