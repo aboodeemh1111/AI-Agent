@@ -58,7 +58,11 @@ export default function ChatMessage({
         </div>
       )}
 
-      <div className={`max-w-[80%] ${isUser ? "order-1" : "order-2"}`}>
+      <div
+        className={`max-w-[85%] sm:max-w-[80%] md:max-w-[70%] ${
+          isUser ? "order-1" : "order-2"
+        }`}
+      >
         <MessageBubble isUser={isUser}>
           {/* Copy Button for Assistant Messages */}
           {!isUser && !message.isLoading && message.content && (

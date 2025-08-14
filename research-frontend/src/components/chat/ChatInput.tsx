@@ -49,7 +49,7 @@ export default function ChatInput({
       <div className="relative">
         <textarea
           ref={textareaRef}
-          className="w-full min-h-[50px] pr-12 resize-none rounded-xl border border-input bg-background/80 backdrop-blur px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full min-h-[50px] pr-12 resize-none rounded-xl border border-input bg-background/80 backdrop-blur px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
           placeholder="Ask a research question..."
           rows={1}
           value={message}
@@ -60,7 +60,7 @@ export default function ChatInput({
         <Button
           type="submit"
           size="icon"
-          className="absolute right-1.5 bottom-1.5 h-8 w-8 shadow-sm"
+          className="absolute right-1.5 bottom-1.5 h-9 w-9 shadow-sm sm:h-10 sm:w-10"
           disabled={!message.trim() || disabled}
           aria-label="Send message"
         >
