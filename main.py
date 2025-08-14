@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import os
 from pydantic import BaseModel
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -17,7 +18,7 @@ class ResearchResponse(BaseModel):
 def get_research_response(query):
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.0-flash",
-        google_api_key="AIzaSyAKU_Pdgeoyb-20WAZgE-QkWAW7OxurQvo"
+        google_api_key=os.environ.get("GOOGLE_API_KEY")
     )
 
     parser = PydanticOutputParser(pydantic_object=ResearchResponse)

@@ -34,9 +34,6 @@ export default function ResearchSummary({
 
       {research.tools?.length > 0 && (
         <div className="pt-2 border-t">
-          <h4 className="text-xs font-semibold mb-1.5 text-muted-foreground">
-            Tools Used:
-          </h4>
           <div className="flex flex-wrap gap-1.5">
             {research.tools.map((tool, index) => (
               <span

@@ -22,9 +22,6 @@ export default function Header({ onClear }: HeaderProps) {
             <h1 className="text-lg sm:text-xl font-semibold tracking-tight">
               AI Research Assistant
             </h1>
-            <p className="hidden sm:block text-xs text-muted-foreground">
-              Research faster with elegance
-            </p>
           </div>
         </div>
         <div className="flex items-center gap-2">

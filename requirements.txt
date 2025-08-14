@@ -9,3 +9,4 @@ pydantic
 duckduckgo-search
 flask
 flask-cors
+gunicorn

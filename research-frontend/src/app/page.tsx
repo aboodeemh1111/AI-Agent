@@ -140,15 +140,7 @@ export default function Home() {
         {/* Hero */}
         <GradientCard className="mb-6 animate-fade-in">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <NeonTitle
-              title="Tech-forward, artistic research interface"
-              subtitle="Search, synthesize, and cite — with style."
-            />
-            <div className="text-xs text-muted-foreground">
-              <span className="inline-flex items-center rounded-md border px-2 py-1 bg-secondary/60">
-                Tip: Press Enter to send, Shift+Enter for a newline
-              </span>
-            </div>
+            <NeonTitle title="AI Research Assistant" />
           </div>
         </GradientCard>
 
